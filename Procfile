@@ -1,1 +1,1 @@
-web: gunicorn tune-bucket:app
+web: gunicorn tunebucket:app
