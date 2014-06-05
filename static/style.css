@@ -1,0 +1,73 @@
+body {
+	padding: 0;
+	margin: 0;
+
+	background: #e4e4e4;
+
+	font-family: "Helvetica Neue", "Arial", sans-serif;
+	font-weight: 300;
+}
+
+h1 {
+	padding: 0;
+	margin: 0;
+
+	text-align: center;
+	font-size: 21px;
+	line-height: 21px;
+	font-weight: 300;
+
+	color: black;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*****************************************************************************/
+/* Header                                                                    */
+/*****************************************************************************/
+
+div#header {
+	padding: 12px 0;
+
+	background: white;
+	border-bottom: 1px solid #9F9F9F;
+}
+
+/*****************************************************************************/
+/* Navigation                                                                */
+/*****************************************************************************/
+
+div#navigation {
+	text-align: center;
+	border-bottom: 1px solid #9F9F9F;
+	margin: 0 auto 24px auto;
+	background: white;
+}
+
+div#navigation ul {
+	margin: 0 auto;
+	list-style-type: none;
+	padding: 4px 0;
+}
+
+div#navigation ul li {
+	display: inline-block;
+	margin: 0 8px;
+	width: 75px;
+}
+
+div#navigation ul li a {
+	color: black;
+}
+
+/*****************************************************************************/
+/* Homepage                                                                  */
+/*****************************************************************************/
+
+iframe#video {
+	display: block;
+	margin: 0 auto;
+	border: 1px solid #9F9F9F;
+}
