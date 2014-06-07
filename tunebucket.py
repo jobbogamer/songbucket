@@ -1,6 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, flash, url_for, request, redirect, jsonify
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+###############################################################################
+# Database Model                                                              #
+###############################################################################
+
+
 
 ###############################################################################
 # Routing Methods                                                             #

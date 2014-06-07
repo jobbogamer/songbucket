@@ -66,8 +66,136 @@ div#navigation ul li a {
 /* Homepage                                                                  */
 /*****************************************************************************/
 
-iframe#video {
-	display: block;
+div#player {
+	width: 500px;
 	margin: 0 auto;
+	background: #FFFFFF;
 	border: 1px solid #9F9F9F;
+}
+
+div#player div.section {
+	margin: 16px 8px;
+}
+
+div#player div#progress-bar {
+	overflow: auto;
+}
+
+div#player div#progress-bar span {
+	float: left;
+	width: 40px;
+	font-size: 14px;
+}
+
+div#player div#progress-bar span#current-time {
+	text-align: right;
+}
+
+div#player div#progress-bar span#total-time {
+	text-align: left;
+}
+
+div#player div#progress-bar div#progress-slider {
+	float: left;
+	width: 387px;
+	height: 4px;
+	margin: 7px 8px 0 8px;
+	border-radius: 0;
+	border: none;
+	background-color: #EBEBEB;
+	opacity: 1.0;
+}
+
+div#player div#progress-bar a.ui-slider-handle {
+	background: #FF0025;
+	border: none;
+	border-radius: 0;
+	width: 2px;
+	margin: 0 0 0 0;
+	height: 14px;
+}
+
+div#player div#info {
+	text-align: center;
+	margin: 24px 0;
+}
+
+div#player div#info p {
+	margin: 0;
+	padding: 0;
+}
+
+div#player div#info p#track-name {
+	font-size: 24px;
+	margin-bottom: 4px;
+}
+
+div#player div#info p#artist-name {
+	margin-bottom: 28px;
+}
+
+div#player div#controls {
+	text-align: center;
+}
+
+div#player div#controls a {
+	margin: 0 24px;
+}
+div#player div#controls a i {
+	width: 30px;
+}
+
+div#player div#volume {
+	overflow: auto;
+	height: 18px;
+}
+
+div#player div#volume i {
+	float: left;
+	width: 32px;
+}
+
+div#player div#volume i.fa-volume-off {
+	text-align: right;
+}
+
+div#volume-slider {
+	float: left;
+	width: 388px;
+	height: 3px;
+	margin: 7px 16px 0 16px;
+	border-radius: 0;
+	border: none;
+	background: #EBEBEB;
+	opacity: 1.0;
+}
+
+div#volume-slider div.ui-slider-range {
+	background: black;
+}
+
+div#volume-slider a.ui-slider-handle {
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	background: #FFFFFF;
+	border: 1px solid #B9B9B9;
+	margin: -2px 0 0 -7.5px;
+}
+
+div#volume-slider a.ui-slider-handle:focus {
+	outline: none;
+}
+
+div#player div#settings {
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+div#player div#settings a {
+	margin: 0 24px;
+}
+
+iframe#video {
+
 }

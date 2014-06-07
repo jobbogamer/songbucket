@@ -1,6 +1,31 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div id="video"></div>
+<div id="player">
+	<iframe id="video" frameborder="0" allowfullscreen="1" title="YouTube video player" width="500" height="281" src="http://www.youtube.com/embed/DHlzIgSvnYc?playsinline=1&controls=0&enablejsapi=1&modestbranding=1&autoplay=1&rel=0&origin=http%3A%2F%2Flocalhost%3A5000"></iframe>
+	<div id="progress-bar" class="section">
+		<span id="current-time">0:00</span>
+		<div id="progress-slider"></div>
+		<span id="total-time">4:10</span>
+	</div>
+	<div id="info" class="section">
+		<p id="track-name">Eye Of The Tiger</p>
+		<p id="artist-name">Survivor</p>
+	</div>
+	<div id="controls" class="section">
+		<a id="rewind-button" onclick="rewind10Seconds()"><i class="fa fa-2x fa-history"></i></a>
+		<a id="playpause-button" onclick="togglePlayPause()"><i class="fa fa-2x fa-play"></i></a>
+		<a id="next-button" onclick="loadNextVideo()"><i class="fa fa-2x fa-fast-forward"></i></a>
+	</div>
+	<div id="volume" class="section">
+		<i class="fa fa-volume-off"></i>
+		<div id="volume-slider"></div>
+		<i class="fa fa-volume-up"></i>
+	</div>
+	<div id="settings" class="section">
+		<a id="repeat-button" onclick="toggleRepeat()"><i class="fa fa-lg fa-retweet"></i></a>
+		<a id="autoplay-button" onclick="toggleAutoplay()"><i class="fa fa-lg fa-random"></i></a>
+	</div>
+</div>
 
 {% endblock %}
