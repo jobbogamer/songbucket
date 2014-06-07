@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 
+import os
 from random import randint
 from flask import Flask, render_template, flash, url_for, request, redirect, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+try:
+	app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+except KeyError as error:
+	app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://localhost:5432"
+
+db = SQLAlchemy(app)
 
 ###############################################################################
 # Database Model                                                              #
@@ -70,6 +77,8 @@ def add_song(trackName, artistName, videoId):
 
 @app.route('/')
 def home():
+	db.create_all()
+
 	options = { }
 	return render_template('index.html', options=options)
 
