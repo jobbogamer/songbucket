@@ -9,7 +9,19 @@ app = Flask(__name__)
 # Database Model                                                              #
 ###############################################################################
 
+class Song(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	trackName = db.Column(db.String(512))
+	artistName = db.Column(db.String(512))
+	videoId = db.Column(db.String(32))
 
+	def __init__(self, trackName, artistName, videoId):
+		self.trackName = trackName
+		self.artistName = artistName
+		self.videoId = videoId
+
+	def __repr__(self):
+		return "[Song(%d) %s by %s]" % (self.id, self.trackName, self.artistName)
 
 ###############################################################################
 # Routing Methods                                                             #
