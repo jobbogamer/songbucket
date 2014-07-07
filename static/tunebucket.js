@@ -60,6 +60,10 @@ function loadNextVideo() {
 	nextVideoId = getNextVideoFromApi();
 }
 
+function repeatVideo() {
+	player.loadVideoById({'videoId': currentVideoId});
+}
+
 function onPlayerStateChange(event) {
 	if (event.data == YT.PlayerState.CUED) {
 		
@@ -67,8 +71,7 @@ function onPlayerStateChange(event) {
 		if (autoplay) {
 			loadNextVideo();
 		} else if (repeat) {
-			nextVideoId = currentVideoId;
-			loadNextVideo();
+			repeatVideo();
 		}
 	} else if (player.getPlayerState() == YT.PlayerState.PAUSED) {
 		var playPauseButton = document.getElementById('playpause-button');
