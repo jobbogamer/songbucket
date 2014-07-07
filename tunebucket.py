@@ -39,12 +39,12 @@ class Song(db.Model):
 
 def get_all_songs():
 	songs = Song.query.all()
-	songs = sorted(songs, key=lambda song: id)
+	songs = sorted(songs, key=lambda song: song.id)
 	return songs
 
 def get_all_songs_by_playcount():
 	songs = Song.query.all()
-	songs = sorted(songs, key=lambda song: playCount)
+	songs = sorted(songs, key=lambda song: song.playCount)
 	return songs
 
 def get_lowest_playcount():
@@ -91,6 +91,15 @@ def favourites():
 def add():
 	options = { 'title': "Add Song" }
 	return render_template('add.html', options=options)
+
+###############################################################################
+# API Methods                                                                 #
+###############################################################################
+
+@app.route('/api/next')
+def api_next():
+	song = pick_song()
+	return jsonify(song)
 
 ###############################################################################
 # "Main"                                                                      #

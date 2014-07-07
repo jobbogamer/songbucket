@@ -1,6 +1,6 @@
 // Load the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/player_api";
+tag.src = "//www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -24,13 +24,22 @@ $(function() {
 
 // Replace the '#video' element with an <iframe> and
 // YouTube player after the API code downloads.
-function onYouTubeIframeAPIReady() {
+function onYouTubePlayerAPIReady() {
 	currentVideoId = 'DHlzIgSvnYc';
 	nextVideoId = 'C11MzbEcHlw';
 
-	console.log('loaded that thingy');
-
 	player = new YT.Player('video', {
+		height: '281',
+		width: '500',
+		playerVars: {
+			playsinline: 1,
+			controls: 0,
+			enablejsapi: 1,
+			modestbranding: 1,
+			autoplay: 1,
+			rel: 0,
+		},
+		videoId: currentVideoId,
 		events: {
       		'onStateChange': onPlayerStateChange
     	}
@@ -42,18 +51,18 @@ function getFirstVideoFromApi() {
 }
 
 function getNextVideoFromApi() {
-	nextVideoId = '';
+	return '';
 }
 
 function loadNextVideo() {
-	var newSource = 'http://www.youtube.com/embed/' + nextVideoId + '?playsinline=1&controls=0&enablejsapi=1&modestbranding=1&autoplay=1&rel=0';
-	document.getElementById('video').src = newSource;
-	onYouTubeIframeAPIReady();
+	player.loadVideoById({'videoId': nextVideoId});
+	currentVideoId = nextVideoId;
+	nextVideoId = getNextVideoFromApi();
 }
 
 function onPlayerStateChange(event) {
 	if (event.data == YT.PlayerState.CUED) {
-		event.target.playVideo();
+		
 	} else if (event.data == YT.PlayerState.ENDED && (autoplay || repeat)) {
 		if (autoplay) {
 			loadNextVideo();
@@ -76,11 +85,9 @@ function togglePlayPause() {
 	var playPauseButton = document.getElementById('playpause-button');
 	if (player.getPlayerState() == YT.PlayerState.PLAYING) {
 		player.pauseVideo();
-		playPauseButton.innerHTML = playPauseButton.innerHTML.replace('pause', 'play');
 	} else if (player.getPlayerState() == YT.PlayerState.PAUSED || player.getPlayerState() == YT.PlayerState.CUED ||
 					player.getPlayerState() == YT.PlayerState.ENDED) {
 		player.playVideo();
-		playPauseButton.innerHTML = playPauseButton.innerHTML.replace('play', 'pause');
 	}
 }
 
