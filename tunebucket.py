@@ -8,8 +8,10 @@ from flask.ext.sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 try:
 	app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+	origin = "http://tunebucket.joshasch.com"
 except KeyError as error:
 	app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://localhost:5432"
+	origin = "http://localhost:5000"
 
 db = SQLAlchemy(app)
 
@@ -79,7 +81,9 @@ def add_song(trackName, artistName, videoId):
 def home():
 	db.create_all()
 
-	options = { }
+	options = {
+		'origin': origin
+	}
 	return render_template('index.html', options=options)
 
 @app.route('/favourites')
