@@ -128,6 +128,7 @@ function toggleMute() {
 }
 
 function setVolume(volume) {
+	$('#volume-slider').slider("value", volume);
 	player.setVolume(volume);
 }
 
