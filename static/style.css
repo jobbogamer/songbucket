@@ -140,7 +140,9 @@ div#player div#controls {
 
 div#player div#controls a {
 	margin: 0 24px;
+	cursor: pointer;
 }
+
 div#player div#controls a i {
 	width: 30px;
 }
@@ -148,6 +150,10 @@ div#player div#controls a i {
 div#player div#volume {
 	overflow: auto;
 	height: 18px;
+}
+
+div#player div#volume a {
+	cursor: pointer;
 }
 
 div#player div#volume i {
@@ -194,6 +200,7 @@ div#player div#settings {
 
 div#player div#settings a {
 	margin: 0 24px;
+	cursor: pointer;
 }
 
 iframe#video {
