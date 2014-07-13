@@ -8,7 +8,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 try:
 	app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-	origin = "http://tunebucket.joshasch.com"
+	origin = "http://songbucket.joshasch.com"
 except KeyError as error:
 	app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://localhost:5432"
 	origin = "http://localhost:5000"
