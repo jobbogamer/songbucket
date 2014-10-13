@@ -154,7 +154,8 @@ function updateProgressBar() {
 	document.getElementById('current-time').innerHTML = currentMinutes + ":" + currentSeconds;
 	document.getElementById('total-time').innerHTML = totalMinutes + ":" + totalSeconds;
 
-	$('#progress-slider').slider("value", (currentTime / totalTime)*100);
+	$('#progress-slider').slider("option", "max", totalTime);
+	$('#progress-slider').slider("value", currentTime);
 }
 
 function float2int(value) {
