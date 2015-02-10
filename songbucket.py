@@ -28,10 +28,17 @@ options.version = "0.0.1"
 options.origin = origin
 options.title = "Songbucket"
 
+navbar_pages = [
+    ("Home", "index")
+]
+
+options.navbar_pages = navbar_pages
+
 ##################################  Pages  ####################################
 
 @app.route('/')
 def index():
+    options.active_page = 0
     return render_template('index.html', options=options)
 
 ##############################  API Endpoints  ################################
