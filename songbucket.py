@@ -5,6 +5,7 @@ import newrelic.agent
 from flask import Flask, render_template, jsonify, url_for, request
 
 from model import database
+from model.dotdict import DotDict
 
 ##################################  Config  ###################################
 
@@ -22,10 +23,10 @@ except KeyError as error:
 
 database.db.init_app(app)
 
-options = {
-    'version': "0.0.1",
-    'origin': origin
-}
+options = DotDict({})
+options.version = "0.0.1"
+options.origin = origin
+options.title = "Songbucket"
 
 ##################################  Pages  ####################################
 

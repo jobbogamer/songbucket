@@ -1,10 +1,6 @@
 <html>
 	<head>
-		{% if options['title'] %}
-		<title>{{ options['title'] }} – Songbucket</title>
-		{% else %}
-		<title>Songbucket</title>
-		{% endif %}
+		<title>{{ options.title }}</title>
 
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -22,11 +18,7 @@
 
 	<body>
 		<div id="header">
-			{% if options['title'] %}
-			<h1>{{ options['title'] }} – Songbucket</h1>
-			{% else %}
-			<h1>Songbucket</h1>
-			{% endif %}
+			<h1>{{ options.title }}</h1>
 		</div>
 
 		<div id="navigation">
